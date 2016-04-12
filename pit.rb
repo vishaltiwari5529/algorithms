@@ -25,8 +25,7 @@ def pit(arr)
     elsif arr[i]<arr[i+1]
       r+=1
     else
-      l=min(arr[p]-arr[q],arr[r]-arr[q])
-      depth=max(depth,l)
+      depth=max(depth,max(arr[p]-arr[q],arr[r]-arr[q]))
       if arr[i]>arr[i+1]
         p=i
         q=i+1
@@ -39,8 +38,7 @@ def pit(arr)
     end
   end
   if r>0
-    k=min(arr[p]-arr[q],arr[r]-arr[q])
-      depth=max(depth,k)
+    depth=max(depth,max(arr[p]-arr[q],arr[r]-arr[q]))
   end
   puts depth
 end
@@ -55,13 +53,7 @@ def max(x,y)
 end
 
 
-def min(x,y)
-  if x<y
-    return x
-  else
-    return y
-  end
-end
+
 arr=[9,8,7,6,5,4,3,2,1,2,3,4,5,6,7,8]
 
 pit(arr)        
